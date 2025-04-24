@@ -59,8 +59,9 @@ def main():
 
     if X.shape[1] == 1:
         plt.scatter(X_test, y_test, color="black", label="Prawdziwe")
-        plt.plot(X_test, y_pred1, label="Model 1", color="blue")
-        plt.plot(X_test, y_pred2, label="Model 2", color="red")
+        sort_idx = np.argsort(X_test[:, 0])
+        plt.plot(X_test[sort_idx, 0], y_pred1[sort_idx], label="Model 1", color="blue")
+        plt.plot(X_test[sort_idx, 0], y_pred2[sort_idx], label="Model 2", color="red")
         plt.legend()
         plt.title("Porównanie modeli")
         plt.show()
